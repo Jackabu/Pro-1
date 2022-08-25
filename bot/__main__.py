@@ -1,4 +1,6 @@
 from signal import signal, SIGINT
+import random
+from random import choice
 from os import path as ospath, remove as osremove, execl as osexecl
 from subprocess import run as srun, check_output
 from psutil import disk_usage, cpu_percent, swap_memory, cpu_count, virtual_memory, net_io_counters, boot_time
@@ -6,6 +8,8 @@ from time import time
 from sys import executable
 from telegram import InlineKeyboardMarkup
 from telegram.ext import CommandHandler
+import requests
+import pytz
 
 from bot import bot, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, LOGGER, Interval, INCOMPLETE_TASK_NOTIFIER, DB_URI, alive, app, main_loop, HEROKU_API_KEY, HEROKU_APP_NAME, USER_SESSION_STRING, app_session
 from .helper.ext_utils.fs_utils import start_cleanup, clean_all, exit_clean_up
